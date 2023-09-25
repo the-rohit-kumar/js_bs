@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Date, Time, and Day Display</title>
+    <style>
+        /* Style the form container */
+        .container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Style the result area */
+        .result-container {
+            margin-top: 10px;
+        }
+
+        /* Style the buttons */
+        button {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Button to show the date -->
+        <button onclick="showDate()">Date</button>
+        <!-- Display area for the date -->
+        <div class="result-container" id="dateResult"></div>
+        <!-- Space between buttons -->
+        <div style="height: 10px;"></div>
+
+        <!-- Button to show time and day -->
+        <button onclick="showTimeAndDay()">Time</button>
+        <!-- Display area for the time and day -->
+        <div class="result-container" id="timeResult"></div>
+    </div>
+
+    <script>
+        function showDate() {
+            var currentDate = new Date();
+            var formattedDate = formatDate(currentDate);
+            showResult("dateResult", formattedDate);
+        }
+
+        function showTimeAndDay() {
+            var currentDateTime = new Date();
+            var formattedDateTime = formatDateTime(currentDateTime);
+            showResult("timeResult", formattedDateTime);
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString();
+        }
+
+        function formatDateTime(dateTime) {
+            var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', timeZoneName: 'short' };
+            return dateTime.toLocaleDateString(undefined, options);
+        }
+
+        function showResult(resultElementId, result) {
+            var resultElement = document.getElementById(resultElementId);
+            resultElement.textContent = result;
+        }
+    </script>
+</body>
+</html>

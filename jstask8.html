@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background: linear-gradient(to bottom, #f0ffd8, #dc99b0, #c786b2);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-right: 40px;
+            background-color: rgba(255, 255, 255, 0);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: blue; /* Set the heading color to blue */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Adjust the size of input boxes */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"],
+        .form-group input[type="number"],
+        .form-group input[type="tel"], /* Adjust Phone Number input size */
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-group textarea {
+            height: 80px;
+            width: 100%; /* Make the Address input box the same size as others */
+        }
+
+        .form-group label.radio {
+            display: block; /* Display the Gender radio buttons vertically */
+            margin-bottom: 10px; /* Add spacing between Gender radio buttons */
+        }
+
+        /* Keep Languages Known options horizontal */
+        .form-group label.language {
+            display: inline; /* Change from inline-block to inline */
+            margin-right: 10px;
+        }
+
+        /* Style for the Country's input box */
+        #country {
+            width: 33%; /* Adjust the width as needed */
+        }
+
+        /* Style for the more rounded and centered Register button */
+        .form-group .button-container {
+            text-align: center; /* Center the button horizontally */
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            align-items: center; /* Center the button vertically */
+            height: 100%; /* Ensure the button-container takes the full height */
+        }
+
+        /* Center the button horizontally on the left side of the form */
+        .form-group .button-container {
+            text-align: center; /* Center the button horizontally */
+        }
+
+        /* Adjust button width and padding as needed */
+        .form-group button {
+            padding: 8px 20px; /* Adjust padding as needed */
+            background-color: red;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: auto; /* Push the button to the left side */
+            margin-right: auto; /* Push the button to the left side */
+            display: block; /* Make the button a block element to center it */
+        }
+
+        .form-group button:hover {
+            background-color: darkred;
+        }
+
+        /* Style for the new line and right alignment */
+        .new-line-right {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Registration Form</h1>
+    <form id="registration-form" onsubmit="return validateForm()">
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input type="text" id="firstName" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" id="lastName" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="confirmPassword">Re-enter Password</label>
+        <input type="password" id="confirmPassword" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        <label class="radio">
+        <input type="radio" name="gender" value="male" checked> Male
+        </label>
+        <label class="radio">
+        <input type="radio" name="gender" value="female"> Female
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" id="age" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea id="address" placeholder="" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="state">State</label>
+        <input type="text" id="state" placeholder="" required>
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <select id="country" required>
+                <option value="" selected>Choose your country</option>
+                <option value="India">India</option>
+                <option value="Japan">Japan</option>
+                <option value="South Korea">South Korea</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <!-- Add more country options as needed -->
+            </optgroup>
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label>Languages known</label>
+        <label class="language">
+        <input type="checkbox" name="language" value="English" checked> English
+        </label>
+        <label class="language">
+        <input type="checkbox" name="language" value="Kannada"> Kannada
+        </label>
+        <label class="language">
+        <input type="checkbox" name="language" value="Hindi"> Hindi
+        </label>
+        <label class="language">
+        <input type="checkbox" name="language" value="Telugu"> Telugu
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+        <input type="checkbox" id="declaration" required> Hereby I declare that all the given details are true
+        </label>
+        <!-- New line and right alignment -->
+        <div class="new-line-right">
+            Log in to <a href="https://ethnus.com/" target="_blank">Ethnus </a>website
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit">Register</button>
+    </div>
+    </form>
+</div>
+
+<script>
+    function validateForm() {
+        var isValid = true;
+
+        // Get references to the input fields
+        var firstName = document.getElementById('firstName');
+        var lastName = document.getElementById('lastName');
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+        var confirmPassword = document.getElementById('confirmPassword');
+        var age = document.getElementById('age');
+        var phoneNumber = document.getElementById('phoneNumber');
+        var address = document.getElementById('address');
+        var state = document.getElementById('state');
+        var country = document.getElementById('country');
+
+        // Check if any of the required fields are empty
+        if (firstName.value === "") {
+            firstName.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (lastName.value === "") {
+            lastName.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (email.value === "") {
+            email.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (password.value === "") {
+            password.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (confirmPassword.value === "") {
+            confirmPassword.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (age.value === "") {
+            age.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (phoneNumber.value === "") {
+            phoneNumber.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (address.value === "") {
+            address.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (state.value === "") {
+            state.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+        if (country.value === "") {
+            country.insertAdjacentHTML('afterend', '<span style="color: red;">POOR</span>');
+            isValid = false;
+        }
+
+        // Prevent form submission if any required field is empty
+        return isValid;
+    }
+</script>
+
+
+
+</body>
+</html>

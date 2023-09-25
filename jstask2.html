@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>String Sorter</title>
+</head>
+<body>
+    <h1>String Sorter</h1>
+    <p>Enter a string to sort alphabetically:</p>
+    
+    <!-- Input field for the string -->
+    <input type="text" id="inputString" placeholder="Enter a string">
+    
+    <!-- Button to trigger sorting -->
+    <button onclick="sortString()">Sort</button>
+    
+    <!-- Display area for sorted result -->
+    <p>Sorted Result:</p>
+    <div id="sortedOutput"></div>
+    
+    <script>
+        function sortString() {
+            // Get the input value
+            var inputString = document.getElementById("inputString").value;
+            
+            // Call the sorting function
+            var sortedOutput = sortStringAlphabetically(inputString);
+            
+            // Display the sorted result
+            document.getElementById("sortedOutput").textContent = sortedOutput;
+        }
+
+        function sortStringAlphabetically(inputString) {
+            var charArray = inputString.split('');
+            charArray.sort();
+            return charArray.join('');
+        }
+    </script>
+</body>
+</html>
